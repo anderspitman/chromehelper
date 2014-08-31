@@ -8,8 +8,9 @@ var chromehelper = (function() {
         callback(privateTabId);
       }
       else {
-        chrome.runtime.sendMessage('get_tab_id', function(response) {
-          callback(response);
+        chrome.runtime.sendMessage('get_tab_id', function(tabId) {
+          privateTabId = tabId;
+          callback(privateTabId);
         });
       }
     }
